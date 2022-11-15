@@ -17,13 +17,14 @@ public class TaskService {
     }
 
     public Collection<Task> getAllByDate(LocalDate inputDate) {
-        List<Task> resultList=new ArrayList<>();
-        for (Map.Entry<Integer,Task>integerTaskEntry: taskMap.entrySet()){
-            var task=integerTaskEntry.getValue();
-            if (task.isAvailable(inputDate)){
+        List<Task> resultList = new ArrayList<>();
+        for (Map.Entry<Integer,Task> integerTaskEntry : taskMap.entrySet()) {
+            var task = integerTaskEntry.getValue();
+            if (task.isAvailable(inputDate)) {
                 resultList.add(task);
             }
         }
         return resultList;
     }
+
 }

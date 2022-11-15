@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 
 public class Main {
+    public enum Type implements java.lang.reflect.Type {
+        PERSONAL, WORK;}
     public static void main(String[] args) {
         TaskService taskService = new TaskService();
 
@@ -53,7 +55,7 @@ public class Main {
         while (forceUserToAnswer){
             try {System.out.println("Введите дату задачи в формате dd.mm.yyyy: ");
                 String date = scanner.nextLine();
-                taskDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd.mm.yyyy"));
+                taskDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
                 forceUserToAnswer=false;
             }catch (Exception e){
                 System.out.println("Введите дату еще раз! ");
@@ -85,7 +87,7 @@ public class Main {
             case 2:
                 taskService.add(new Task.WeeklyTask(name, description, taskType, resultDate));
                 break;
-            ;
+
             case 3:
                 taskService.add(new Task.MonthTask(name, description, taskType, resultDate));
                 break;
@@ -103,9 +105,10 @@ public class Main {
                 taskService.remove(id);
     }
     private static void getTaskByDay(TaskService taskService,Scanner scanner){
-        System.out.println("Введите дату задачи в формате dd.mm.yyyy: ");
-        String date= scanner.nextLine();
-        LocalDate taskDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd.mm.yyyy"));
+        System.out.println("Введите дату задачи в формате dd.MM.yyyy: ");
+        scanner.nextLine();
+        String date=scanner.nextLine();
+        LocalDate taskDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("dd.MM.yyyy"));
         var allTaskByDay=taskService.getAllByDate(taskDate);
         System.out.println(" Список задач этого дня ");
         for (Task task:allTaskByDay){
@@ -118,12 +121,9 @@ public class Main {
 
     private static void printMenu() {
         System.out.println(
-                "1. Добавить задачу\n" +
+                        "1. Добавить задачу\n" +
                         "2. Удалить задачу\n" +
-                        "3. Получить задачу на указанный день\n" +
-                        "4. Получите все задачи\n" +
-                        "5. Редактировать заголовок и описание задачи\n" +
-                        "6. Получить список всех удаленных задач\n" +
+                        "3. Получить задачи на указанный день\n" +
                         "0. Выход\n"
 
         );
