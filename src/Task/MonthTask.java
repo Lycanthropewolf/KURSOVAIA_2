@@ -8,7 +8,7 @@ public class MonthTask extends Task {
 
 
     public MonthTask(String title, String description, Type type, LocalDateTime taskDateTime) {
-        super(title, description, type, taskDateTime);
+        super(title, description, type,  taskDateTime);
     }
 
     @Override

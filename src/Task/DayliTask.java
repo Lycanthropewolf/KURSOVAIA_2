@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class DayliTask extends Task {
+public class DayliTask extends  Task {
 
 
     public DayliTask(String title, String description, Type type, LocalDateTime taskDateTime) {

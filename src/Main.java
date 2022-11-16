@@ -61,7 +61,7 @@ public class Main {
                 System.out.println("Введите дату еще раз! ");
             }
         }
-        System.out.println("Введите время задачи в формате HH:mm ");
+        System.out.println("Введите время задачи в формате HH:mm");
         String time = scanner.nextLine();
         LocalTime taskTime = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm"));
         LocalDateTime resultDate = LocalDateTime.of(taskDate, taskTime);

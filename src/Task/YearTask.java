@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class YearTask extends Task {
+public class YearTask extends  Task {
 
 
     public YearTask(String title, String description, Type type, LocalDateTime taskDateTime) {

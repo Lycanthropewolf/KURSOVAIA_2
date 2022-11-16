@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class Task implements Repeatable{
     private int id;
     private String title;
-    private String description;
+    private String  description;
     private Type type;
     private static int idGenerator=0;
     private LocalDateTime dateTime;

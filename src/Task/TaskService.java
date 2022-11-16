@@ -9,7 +9,7 @@ public class TaskService {
     private Collection<Task> removedTasks;
 
     public void add(Task task) {
-        taskMap.put(task.getId(), task);
+        taskMap.put(task.getId(),task);
     }
 
     public void remove(int id) {
