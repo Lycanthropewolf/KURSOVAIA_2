@@ -4,23 +4,23 @@ import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class YearTask extends  Task {
+public class YearTask extends   Task {
 
 
-    public YearTask(String title, String description, Type type, LocalDateTime taskDateTime) {
-        super(title, description, type, taskDateTime);
+    public YearTask( String title, String description, Type type, LocalDateTime taskDateTime ) {
+        super( title, description, type, taskDateTime );
     }
 
     @Override
-    public boolean isAvailable(LocalDate inputDate) {
+    public boolean isAvailable( LocalDate inputDate ) {
         var startData = getDateTime().toLocalDate();
-        while (!startData.isAfter(inputDate)) {
-            if (startData.equals(inputDate)) {
-                return true;
+        while (!startData.isAfter( inputDate )) {
+            if ( startData.equals(inputDate) ) {
+                return  true;
             }
             startData = startData.plusYears(1);
         }
-        return false;
+        return  false;
     }
 }
 
