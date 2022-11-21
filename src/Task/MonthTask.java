@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class MonthTask extends  Task {
 
 
-    public MonthTask( String title, String description, Type type, LocalDateTime taskDateTime ) {
+    public MonthTask(String title, String description, Type type, LocalDateTime taskDateTime ) {
         super( title, description, type,  taskDateTime );
     }
 

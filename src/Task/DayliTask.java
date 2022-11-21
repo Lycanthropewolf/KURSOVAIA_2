@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class DayliTask extends   Task {
 
 
-    public DayliTask( String title, String description, Type type, LocalDateTime taskDateTime ) {
+    public DayliTask(String title, String description, Type type, LocalDateTime taskDateTime ) {
         super( title, description, type, taskDateTime );
     }
 

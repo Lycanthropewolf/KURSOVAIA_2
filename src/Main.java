@@ -10,8 +10,6 @@ import java.util.Scanner;
 
 
 public class Main {
-    public enum Type implements java.lang.reflect.Type {
-        PERSONAL, WORK;}
     public static void main(String[] args) {
         TaskService taskService = new TaskService();
 
@@ -67,7 +65,7 @@ public class Main {
         LocalDateTime resultDate = LocalDateTime.of(taskDate, taskTime);
         System.out.println("Введите тип задачи: Личный(1) или Рабочий(2)");
         int type = scanner.nextInt();
-        Type taskType = type == 1 ? Type.PERSONAL : Type.WORK;
+        Type taskType = type == 1 ? PERSONAL : Type.WORK;
         System.out.println("Введите повторяемость задачи:");
         System.out.println("  0-не повторяется");
         System.out.println("  1-дневная");
@@ -81,7 +79,7 @@ public class Main {
                 break;
 
             case 1:
-                taskService.add(new Task.DayliTask(name, description, taskType, resultDate));
+                taskService.add(new DayliTask(name, description, taskType, resultDate));
                 break;
 
             case 2:

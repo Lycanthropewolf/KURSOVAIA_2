@@ -8,11 +8,11 @@ public class Task implements Repeatable{
     private int  id;
     private String  title;
     private String   description;
-    private Type  type;
+    private Type type;
     private static int  idGenerator=0;
     private LocalDateTime  dateTime;
 
-    public Task( String title, String description, Type type, LocalDateTime taskDateTime ) {
+    public Task(String title, String description, Type type, LocalDateTime taskDateTime ) {
         this.id = idGenerator++;
         this.title = title;
         this.description = description;
@@ -75,23 +75,7 @@ public class Task implements Repeatable{
         }
     }
 
-    public static class WeeklyTask extends  Task {
-        public WeeklyTask( String name, String description, Type taskType, LocalDateTime resultDate) {
-            super( name, description, taskType, resultDate);
-        }
-    }
 
-    public static class DayliTask  extends Task {
-        public DayliTask( String name,  String description,  Type taskType,  LocalDateTime resultDate) {
-            super( name, description, taskType, resultDate);
-        }
-    }
-
-    public static class YearTask extends Task {
-        public YearTask ( String name, String description, Type taskType, LocalDateTime resultDate ) {
-            super( name, description, taskType, resultDate);
-        }
-    }
 
     @Override
     public String  toString() {

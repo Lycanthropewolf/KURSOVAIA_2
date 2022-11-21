@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class YearTask extends   Task {
 
 
-    public YearTask( String title, String description, Type type, LocalDateTime taskDateTime ) {
+    public YearTask(String title, String description, Type type, LocalDateTime taskDateTime ) {
         super( title, description, type, taskDateTime );
     }
 

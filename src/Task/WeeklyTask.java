@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class WeeklyTask extends  Task {
 
 
-    public WeeklyTask( String title, String description, Type type, LocalDateTime taskDateTime ) {
+    public WeeklyTask(String title, String description,Type type, LocalDateTime taskDateTime ) {
         super( title, description, type, taskDateTime );
     }
 
