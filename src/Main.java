@@ -1,7 +1,14 @@
 import Task.Task;
 import Task.TaskService;
+import Task.DayliTask;
+import Task.WeeklyTask;
+import Task.MonthTask;
+import Task.YearTask;
+import Task.Type;
+import Task.DayliTask;
+import Task.DayliTask;
+import Task.DayliTask;
 
-import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -41,13 +48,12 @@ public class Main {
         }
     }
 
-    private static void addTask(  TaskService taskService,Scanner scanner) {
+    private static void addTask(TaskService taskService,Scanner scanner) {
         System.out.println("Введите заголовок задачи: ");
-        String name = scanner.nextLine();
+        String title = scanner.nextLine();
         scanner.nextLine();
         System.out.println("Введите описание задачи: ");
         String description = scanner.nextLine();
-
         LocalDate taskDate = null;
         boolean forceUserToAnswer=true;
         while (forceUserToAnswer){
@@ -65,7 +71,7 @@ public class Main {
         LocalDateTime resultDate = LocalDateTime.of(taskDate, taskTime);
         System.out.println("Введите тип задачи: Личный(1) или Рабочий(2)");
         int type = scanner.nextInt();
-        Type taskType = type == 1 ? PERSONAL : Type.WORK;
+        Type taskType = type == 1 ? Type.PERSONAL : Type.WORK;
         System.out.println("Введите повторяемость задачи:");
         System.out.println("  0-не повторяется");
         System.out.println("  1-дневная");
@@ -75,22 +81,22 @@ public class Main {
         int typeTask = scanner.nextInt();
         switch (typeTask) {
             case 0:
-                taskService.add(new Task(name, description, taskType, resultDate));
+                taskService.add(new Task(title, description, taskType, resultDate));
                 break;
 
             case 1:
-                taskService.add(new DayliTask(name, description, taskType, resultDate));
+                taskService.add(new DayliTask(title, description, taskType, resultDate));
                 break;
 
             case 2:
-                taskService.add(new Task.WeeklyTask(name, description, taskType, resultDate));
+                taskService.add(new WeeklyTask(title, description, taskType, resultDate));
                 break;
 
             case 3:
-                taskService.add(new Task.MonthTask(name, description, taskType, resultDate));
+                taskService.add(new MonthTask(title, description, taskType, resultDate));
                 break;
             case 4:
-                taskService.add(new Task.YearTask(name, description, taskType, resultDate));
+                taskService.add(new YearTask(title, description, taskType, resultDate));
                 break;
             default:
                 throw new RuntimeException(" нет такого типа задач ");
@@ -102,7 +108,7 @@ public class Main {
         int id= scanner.nextInt();
                 taskService.remove( id);
     }
-    private static void getTaskByDay( TaskService taskService, Scanner scanner){
+    private static void getTaskByDay(TaskService taskService, Scanner scanner){
         System.out.println("Введите дату задачи в формате dd.MM.yyyy: ");
         scanner.nextLine();
         String date=scanner.nextLine();
@@ -117,7 +123,7 @@ public class Main {
     }
 
 
-    private  static  void  printMenu(  ) {
+    private  static  void  printMenu() {
         System.out.println(
                         "1. Добавить задачу\n" +
                         "2. Удалить задачу\n" +

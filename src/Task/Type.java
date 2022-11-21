@@ -1,9 +1,11 @@
 package Task;
 
-public enum Type {
+public enum Type implements java.lang.reflect.Type {
     PERSONAL,
     WORK;
 
-    Type() {
+    @Override
+    public String getTypeName()  {
+        return java.lang.reflect.Type.super.getTypeName();
     }
 }

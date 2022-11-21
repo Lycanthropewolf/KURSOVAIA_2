@@ -7,12 +7,12 @@ import java.time.LocalDateTime;
 public class WeeklyTask extends  Task {
 
 
-    public WeeklyTask(String title, String description,Type type, LocalDateTime taskDateTime ) {
+    public WeeklyTask(String title,String description,Type type,LocalDateTime taskDateTime ) {
         super( title, description, type, taskDateTime );
     }
 
     @Override
-    public boolean isAvailable( LocalDate inputDate ) {
+    public boolean isAvailable(LocalDate inputDate) {
         var startData = getDateTime().toLocalDate();
         while (!startData.isAfter( inputDate )) {
             if (startData.equals( inputDate )) {

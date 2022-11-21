@@ -16,7 +16,7 @@ public class TaskService {
         taskMap.remove( id );
     }
 
-    public Collection<Task> getAllByDate( LocalDate inputDate ) {
+    public Collection<Task> getAllByDate(LocalDate inputDate) {
         List<Task> resultList = new   ArrayList<>();
         for (Map.Entry<Integer,Task> integerTaskEntry : taskMap.entrySet()) {
             var task = integerTaskEntry.getValue();
